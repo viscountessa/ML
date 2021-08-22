@@ -102,12 +102,12 @@ model = None
 
 
 @app.route("/", methods=["GET"])
-@app.route('/index.html', methods=["GET"])
+@app.route('/index_bmw.html', methods=["GET"])
 def index():
-    return render_template('form_tpl.html')
+    return render_template('form_bmw.html')
 
 
-@app.route("/predict.html", methods=["GET", 'POST'])
+@app.route("/predict_bmw.html", methods=["GET", 'POST'])
 def predict1():
     try:
         # print(flask.request.form)
@@ -124,7 +124,7 @@ def predict1():
             #text = '''Скорее всего гриб не ядовит.
 #Bероятность -'''
             result = round(preds)
-        return render_template('itog.html', text=text, result=result)
+        return render_template('itog_bmw.html', text=text, result=result)
     except Exception as e:
         return f'''Ошибка ввода данных {e} {dict(flask.request.form)}'''
 
